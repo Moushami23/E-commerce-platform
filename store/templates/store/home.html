@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h4>Categories</h4>
+        <div class="d-flex gap-3">
+            <a href="/" class="btn btn-dark btn-sm">All</a>
+            {% for category in categories %}
+                <a href="?category={{ category.id }}" class="btn btn-outline-dark btn-sm">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-3 mb-4">
+        <div class="card shadow-sm">
+            <img src="{{ product.image.url }}" class="card-img-top" height="200">
+            <div class="card-body text-center">
+                <h6>{{ product.name }}</h6>
+                <p class="fw-bold">₹ {{ product.price }}</p>
+                <a href="/cart/add/{{ product.id }}/" class="btn btn-primary btn-sm">
+                    Add to Cart
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% if not products %}
+    <p class="text-danger">No products found.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

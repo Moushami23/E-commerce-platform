@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="text-center mt-5">
+
+    <div class="card shadow p-5" style="max-width:600px; margin:auto;">
+        
+        <h2 class="text-success mb-3">
+            ✅ Order Placed Successfully!
+        </h2>
+
+        <p><strong>Order ID:</strong> #{{ order.id }}</p>
+        <p><strong>Total Paid:</strong> ₹ {{ order.total }}</p>
+
+        <a href="/" class="btn btn-primary mt-3">
+            Continue Shopping
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
